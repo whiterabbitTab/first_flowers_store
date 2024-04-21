@@ -1,0 +1,160 @@
+@use '../Home/Home.module.scss' as hm;
+
+.basket {
+    @apply flex flex-col items-center py-20 gap-1 w-full ;
+
+    h1 {
+        @apply font-bold text-4xl;
+    }
+    & > .main_div {
+        @apply flex items-center py-32 w-full;
+        .orders__block {
+            @apply flex items-start justify-around w-full;
+    
+            & > .decoration {
+                @apply flex flex-col items-center bg-secondary px-10 py-14 rounded-xl gap-24;
+                width: 45%;
+                & > .order {
+                    @apply flex flex-col justify-around items-center w-full gap-y-8;
+                    h1 {
+                        @apply font-bold text-3xl;
+                    }
+        
+                    .postcard {
+                        @apply flex flex-col items-start gap-5;
+                        width: 85%;
+        
+                        h2 {
+                            @apply font-bold text-xl;
+                        }
+        
+                        textarea {
+                            @apply overflow-y-auto p-3 rounded-xl w-full text-black font-semibold text-lg;
+                            height: 140px;
+                            background-color: #cfcfcf;
+                        }
+                    }
+    
+                    & > .informations {
+                        @apply grid gap-y-12;
+                        width: 85%;
+                        grid-template-columns: repeat(2, 1fr);
+    
+                        & > div {
+                            @apply flex flex-col justify-around gap-8 items-start;
+    
+                            h3 {
+                                @apply font-bold text-xl;
+                            }
+    
+                            & > .address { 
+    
+                                div {
+                                    .select_add {
+                                        @apply block bg-secondary;
+                                        background-color: transparent;
+                                        color: red;
+        
+                                        & > option {
+                                            @apply text-base font-normal tracking-wider mr-3 cursor-pointer;
+                                            background-color: #2B2929;
+                                            
+                                        }
+                                    }
+        
+                                    select::-ms-expand {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+    
+                        
+                    }
+                }
+    
+                & > .payment {
+                    @apply flex items-center justify-around w-full;
+    
+                    h3 {
+                        @apply w-full font-bold text-xl;
+                    }
+                    & > .card_data {
+                        @apply flex flex-col gap-5;
+                        width: 50%;
+    
+                        input {
+                            @apply flex justify-center items-center font-bold text-base p-3 rounded-md;
+                            background-color: #2B2929;
+                        }
+    
+                        & > div {
+                            @apply flex justify-between items-center gap-y-10 gap-x-2;
+                            
+                            & > input {
+                                width: 50%;
+                            }
+                        }
+                        
+                    }
+                    & > .info_customer {
+                        @apply flex flex-col gap-7 gap-y-10;
+                    }
+                }
+            }
+    
+            .list_orders {
+                @apply flex justify-start items-center flex-col gap-20;
+    
+                & > .card_order {
+                    @apply flex items-start justify-center gap-x-5 p-6 bg-secondary rounded-xl;
+                    width: 600px;
+
+                    & > .image {
+                        background: url('../../images/home/carousel_products/img-1.png') no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                        width: 290px;
+                        height: 168px;
+                        border-radius: 12px;
+                    }
+
+                    & > .text_block {
+                        @apply flex items-center flex-col gap-2 justify-around h-full w-full;
+
+                        & > h4 {
+                            @apply w-full text-center font-bold text-2xl;
+                        }
+
+                        & > div {
+                            @apply flex justify-between items-center w-full;
+
+                            & > p {
+                                @apply text-base font-bold;
+
+                                span {
+                                    @apply text-main;
+                                }
+                            }
+                        }
+
+                        & > textarea {
+                            @apply w-full bg-transparent h-24 resize-none overflow-auto cursor-default pr-2 text-sm font-bold;
+                        }
+                        & > textarea::-webkit-scrollbar {
+                            @apply bg-transparent w-2 h-2;
+                        }
+                        & > textarea::-webkit-scrollbar-thumb {
+                            @apply rounded-xl;
+                            background-color: rgba(192, 189, 189, 0.1)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .order_btn {
+        @include hm.order_btn($wd: 60%, $hg: 48px);
+    }
+}

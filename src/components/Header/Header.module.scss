@@ -1,0 +1,54 @@
+.header {
+  @apply flex items-center justify-between px-2 w-full bg-black text-gray-500;
+  height: 6vh;
+
+  .home_btn {
+    @apply flex items-center h-10 ml-3;
+
+    .logo {
+      @apply w-11 h-11 mr-1;
+      background: url("../../images/header/logo.png");
+      background-size: cover;
+      background-position: center;
+    }
+    h3 {
+      @apply text-BA text-2xl font-bold w-16;
+      font-style: "Roboto";
+    }
+  }
+
+  .links {
+    @apply flex items-center justify-between;
+
+    .navbutton {
+      @apply flex items-center transition-colors duration-150 h-6 px-5 font-bold hover:text-slate-300;
+      font-size: 16px;
+    }
+  }
+
+  .accounts_links {
+    @apply flex items-center justify-between w-48 mr-3;
+
+    .basket {
+      @apply flex items-center justify-between transition-all duration-150 bg-bsk w-28 h-9 pr-2 rounded-md text-sm font-bold hover:bg-gray-800  hover:text-white;
+
+      .basket_icon {
+        @apply w-7 h-6 ml-1;
+        background: url("../../images/header/basket.png") center center
+          no-repeat;
+        background-size: 90%;
+      }
+    }
+
+    .account {
+      @apply w-12 h-12 rounded-full ml-5 transition-all duration-200 hover:scale-110;
+      background: url("../../images/header/account_icon.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .auth_btn {
+      @apply transition-all duration-300 text-center w-16 h-9 bg-bsk rounded-md p-1 font-bold hover:bg-gray-800  hover:text-white;
+    }
+  }
+}

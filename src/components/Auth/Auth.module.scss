@@ -1,0 +1,40 @@
+.auth_page {
+    @apply flex items-center justify-center w-full;
+    height: 94vh;
+
+    section {
+        @apply grid items-center justify-center grid-flow-row bg-secondary rounded-3xl;
+        height: 80%;
+        width: 750px;
+
+        h1 {
+            @apply text-center text-3xl font-bold;
+        }
+
+        .fields {
+            @apply grid items-center justify-center grid-flow-row gap-10;
+            
+            label {
+                @apply text-start text-lg w-80;
+            }
+            input { 
+                @apply ml-7 w-96;
+            }
+            form {
+                width: 450px;
+            }
+        }
+
+        .buttons {
+            @apply flex flex-col items-center justify-between h-24;
+
+            .order_btn {
+                @apply transition-all duration-300 w-64 h-10 bg-main-bg text-center font-bold text-lg rounded-2xl hover:bg-red-500 hover:scale-105;
+            }
+
+            & > button:nth-child(2) {
+                @apply transition-all duration-150 border-0 text-base font-bold text-main hover:scale-105;
+            }
+        }
+    }
+}

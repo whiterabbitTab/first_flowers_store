@@ -1,0 +1,108 @@
+.catalog_main {
+    @apply flex flex-col items-center;
+
+    .greeting {
+        @apply flex items-center flex-col justify-center w-full select-none;
+        height: 94vh;
+        background: url('../../images/catalog/greet_bg.jpg') center center no-repeat;
+        background-size: cover;
+
+        div {
+            @apply absolute z-0 w-full;
+            height: 94vh;
+            top: 6vh;
+            background-color: rgba(8, 8, 8, .5);
+        }
+
+        h1 {
+            @apply relative z-10 font-bold my-16;
+            font-size: 40px;
+        }
+        
+        h3 {
+            @apply relative z-10 font-bold text-2xl mb-16;
+
+            span {
+                @apply text-main text-3xl;
+            }
+        }
+
+        a {
+            @apply transition-all duration-200 relative z-10 cursor-pointer flex items-center justify-center text-2xl font-bold bg-main-bg rounded-xl hover:scale-105;
+            width: 50%;
+            height: 45px;
+        }
+    }
+
+    .filters {
+        @apply flex flex-col items-center justify-center py-20 w-full;
+
+        .products_filter {
+            @apply flex justify-around items-center h-20 rounded-xl px-20 mb-7;
+            width: 93%;
+            background-color: #2C2B2B;
+
+            button {
+                @apply transition-all duration-300 flex items-center justify-center font-bold text-main text-lg p-3 rounded-xl;
+            }
+            button:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        .diff_filter {
+            @apply flex items-center justify-between h-8 gap-x-3;
+            width: 80%;
+
+            div, form {
+                @apply flex items-center justify-between cursor-pointer overflow-hidden rounded-lg bg-secondary px-5 py-2 select-none;
+                font-family: inherit;
+
+                select {
+                    @apply bg-transparent border-none text-base leading-4 cursor-pointer focus:bg-secondary min-w-24;
+                    border-color: #000000;
+
+                    option {
+                        @apply font-normal tracking-wider pr-5 bg-transparent rounded-6 mr-3 cursor-pointer;
+                        border: 0;
+                        height: 200px;
+                    }
+                }
+                
+                input {
+                    @apply text-main bg-secondary text-base font-bold w-20;
+                }
+                
+                input[type="checkbox"] {
+                    @apply cursor-pointer size-5 rounded-lg border-0 bg-slate-600;
+                }
+
+                label {
+                    @apply text-base cursor-pointer font-normal tracking-wider mr-3;
+                }
+            }
+            form, form>label {
+                cursor: default;
+            }
+        }
+    }
+
+    .products__sect {
+        @apply flex flex-col items-center justify-between w-full gap-14 pb-32;
+
+        & > .products {
+            @apply grid;
+            grid-template-columns: repeat(4, 1fr);
+            row-gap: 60px;
+            column-gap: 120px;
+        }
+
+        & > .update {
+            @apply flex justify-center items-center transition-colors duration-300 h-11 font-medium text-lg bg-secondary rounded-xl;
+            width: 70%;
+        }
+        & > .update:hover {
+            background-color: rgb(41, 40, 40)
+        }
+    }
+}

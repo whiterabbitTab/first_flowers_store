@@ -1,0 +1,72 @@
+@use '../Home/Home.module.scss' as hm;
+
+.user_page {
+    @apply flex flex-col gap-y-12 items-center justify-center;
+    height: 70vh; 
+
+    & > button {
+        @apply transition-all duration-150 p-3 rounded-3xl border-0 w-48 text-base font-bold hover:scale-105 bg-main-bg;
+    }
+
+    .user_info {
+        @apply grid grid-flow-col gap-40;
+
+        .icons {
+            @apply flex justify-between flex-col gap-10;
+
+            .icon {
+                @include hm.image($bg: url('../../images/user_page/user_icon_1241.png'), $size: cover, $bg-color: transparent, $bxsh: none, $z-ind: 0);
+                @apply size-64 rounded-full pointer-events-none;
+            }
+
+            .user__name {
+                @apply text-center font-bold text-xl text-main;
+            }
+
+            .bonus_block {
+                @apply flex items-center justify-between gap-10;
+
+                p {
+                    @apply font-bold text-lg;
+                }
+
+                div {
+                    @apply flex items-center size-12 rounded-full justify-center p-3;
+                    background-color: #60D636;
+                }
+            }
+        }
+
+        .main_info,
+        .password_settings {
+            @apply flex flex-col justify-between gap-16;
+            height: 300px;
+
+            h3 {
+                @apply text-center font-bold text-2xl;
+            }
+
+            & > div {
+                @apply flex flex-col justify-between gap-12;
+
+                & > form {
+                    @apply flex items-center justify-between gap-6;
+                    width: 430px;
+
+                    label {
+                        @apply font-bold text-base text-start w-96;
+                    }
+            
+                    input {
+                        @apply flex justify-center items-center font-bold text-base p-3 rounded-md min-w-60;
+                        background-color: #2B2929;
+                        
+                    }
+                }
+                button {
+                    @apply transition-all duration-150 p-3 rounded-3xl border-0 w-48 text-base mx-auto font-bold hover:scale-105 bg-main-bg;
+                }
+            }
+        }
+    }
+}

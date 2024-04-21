@@ -1,0 +1,70 @@
+@use '../Home/Home.module.scss' as h;
+
+.product_page {
+    @apply flex justify-center mt-12;
+    height: 95vh;
+
+    .product_description {
+        @apply grid grid-flow-col w-full;
+        height: 45%;
+        & > div {
+            @apply px-2;
+        }
+        .photo {
+            @apply rounded-full;
+            width: 400px;
+            height: 400px;
+            @include h.image($bg-color: transparent);
+            pointer-events: none;
+        }
+    
+        .title {
+            @apply flex flex-col h-full justify-between;
+    
+            h1 {
+                @apply text-center w-full text-3xl font-bold;
+            }
+            & > div > div {
+                @apply flex items-center justify-center gap-7;
+            }
+            span {
+                @apply text-3xl font-bold text-main;
+            }
+    
+            p {
+                @apply flex items-center gap-x-1;
+                div {
+                    @apply size-6;
+                    @include h.image($bg: url('../../images/product/ruble.png'),$bg-color: transparent);
+                }
+                .line {
+                    @apply relative top-5 w-full rounded-sm;
+                    background-color: #5F5E5D;
+                    height: 3px;
+                }
+            }
+            & > div {
+                @apply flex flex-wrap flex-col gap-3 items-center;
+    
+                button {
+                    @apply transition-all duration-300 text-center bg-main-bg text-base font-bold rounded-xl hover:scale-105 hover:bg-red-500;
+                    width: 400px;
+                    height: 50px;
+                }
+            }
+        }
+        .description {
+            @apply flex flex-col justify-between gap-4;
+    
+            h1 {
+                @apply text-3xl font-bold;
+            }
+            p, p > span {
+                @apply text-lg font-bold;
+            }
+            p > span {
+                @apply text-main;
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+@use "../Home/Home.module.scss" as m;
+@use "sass:list";
+
+$images: "facebook", "tg", "vk", "telephone";
+
+.footer {
+  @apply flex items-center justify-center w-full bg-secondary h-56;
+
+  .main_info_foot {
+    @apply flex items-center justify-between;
+    width: 50%;
+    h1 {
+      font-size: 18px;
+      @apply font-medium text-center pb-2 text-start;
+    }
+
+    ul {
+      list-style: none;
+      @apply text-xs font-medium;
+
+      li {
+        @apply py-1;
+      }
+      a {
+        @apply transition-colors duration-200 hover:text-blue-400
+      }
+      .about_holidays {
+        @apply flex items-center flex-col;
+        width: 764px;
+        height: 114px;
+      }
+    }
+    .contacts {
+      @apply flex items-center flex-col;
+
+      ul {
+        @apply h-full py-6 flex justify-around flex-col; 
+        li {
+          @apply flex items-center;
+
+          p {
+            @apply font-medium text-xs;
+          }
+        }
+
+        li:nth-child(1) {
+          @apply mb-4;
+          div {
+            @apply size-8;
+            @include m.image(
+              url("../../images/header/logo.png") center center no-repeat,
+              cover,
+              transparent,
+              none,
+              0
+            );
+          }
+          h2 {
+            @apply font-bold text-2xl;
+          }
+        }
+        @for $i from 1 through 4 {
+          li:nth-child(#{$i+1}) {
+            span {
+              @apply text-left size-4 mr-2;
+              @include m.image(
+                url("../../images/footer/#{list.nth($images, $i)}.png"),
+                100%,
+                transparent,
+                none,
+                0
+              );
+            }
+          }
+        }
+        li:nth-child(2) {
+          span {
+            background-size: 180%;
+            background-position: 50% 10%;
+          }
+        }
+      }
+    }
+  }
+}

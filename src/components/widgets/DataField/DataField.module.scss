@@ -1,0 +1,13 @@
+.field {
+    @apply flex flex-row items-center justify-between w-56 h-6;
+
+    label {
+        @apply font-bold text-sm text-center;
+    }
+
+    input {
+        @apply flex justify-center items-center font-bold text-sm p-3 rounded-md;
+        width: 70%;
+        background-color: #2B2929;
+    }
+}

@@ -1,0 +1,234 @@
+@use 'sass:list';
+
+@mixin image($bg: '', $size: cover, $bg-color, $bxsh: none, $z-ind: 0) {
+    @if $bg != '' {
+        background: $bg;
+    }
+    background-size: $size;
+    background-color: $bg-color;
+    box-shadow: $bxsh;
+    z-index: $z-ind;
+}
+
+@mixin order_btn($wd, $hg) {
+    @apply flex justify-center transition-all duration-300 items-center text-xl font-bold bg-main-bg rounded-lg hover:bg-red-600 hover:text-white hover:scale-105;
+    width: $wd;
+    height: $hg;
+}
+
+.home_page {
+    @apply flex items-center gap-16 flex-col bg-main-black-bg;
+
+    h1 {
+        @apply text-4xl font-bold tracking-widest;
+    }
+
+    /* Start */
+    .greeting {
+        @apply flex items-center justify-center gap-24 w-full p-12;
+        background: url("../../images/home/bg-greeting.png");
+        background-size: cover;
+        background-position: center;
+        height: 94vh;
+
+        .info_greeting {
+            @apply flex items-start justify-between flex-col h-96;
+            width: 44%;
+
+            h3 {
+                @apply text-40p font-bold;
+            }
+
+            p {
+                @apply text-3xl font-bold;
+            }
+
+            .order_btn {
+                @include order_btn($wd: 60%, $hg: 48px);
+            }
+        }
+
+        .greet_photo {
+            @apply w-139 h-86,75;
+            background: url('../../images//home/flowers_greet.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    /* about us */
+    .about {
+        @apply flex flex-col items-center pb-16 mb-10 w-full p-12 px-10;
+        height: 100vh;
+        & > div {
+            height: 700px;
+        }
+
+        .main_info {
+            @apply flex items-start flex-col justify-around;
+            width: 50%;
+            height: 551px;
+
+            h2, p {
+                @apply text-2xl font-bold;
+            }
+        }
+        .examples {
+            @apply flex items-center;
+            height: 301px;
+
+            .flower_block {
+                @apply relative flex items-center rounded-6 bg-secondary;
+                width: 400px;
+                height: 330px;
+            }
+            .flower_block:nth-child(1) {
+                @include image(url('../../images/home/sakura.png') center center no-repeat, 80%, #141414, -2px 2px 5px rgb(15, 15, 15), 3);
+                left: 700px;
+                top: -220px;
+            }
+            .flower_block:nth-child(2) {
+                @include image(url('../../images/home/white_rose.png') center center no-repeat, 60%, #141414, 2px -2px 5px rgb(15, 15, 15), 2);
+                right: -30px;
+                top: 50px;
+            }
+            .flower_block:nth-child(3) {
+                @include image(url('../../images/home/peony.png') center center no-repeat, 70%, #141414, none, 1);
+                top: 250px;
+                right: 100px;
+            }
+        }
+    }
+
+    .products_carousel {
+        @apply flex flex-col items-center gap-24 p-12;
+        width: 100%;
+        height: 100vh;
+
+        & > a {
+            @apply flex items-center justify-center transition-all duration-200 text-xl h-10 font-medium bg-secondary rounded-6;
+            width: 90%;
+            color: #666161;
+        }
+        & > a:hover {
+            color: #888484;
+        }
+        .container {
+            @apply flex items-center justify-center px-8;
+            width: 90%;
+            
+            .arrow_left, .arrow_right {
+                @apply transition-all duration-200 absolute flex h-12 w-6;
+                background-position: center;
+                background-size: cover;
+            }
+
+            .arrow_left:hover, .arrow_right:hover {
+                scale: 1.1;
+            }
+
+            .arrow_left {
+                left: 5%;
+                background: url('../../images/home/left.png') no-repeat;
+            }
+
+            .arrow_right {
+                right: 5%;
+                background: url('../../images/home/right.png') no-repeat;
+            }
+            .content {
+                max-width: 91%;
+                overflow: hidden;
+
+                .carousel {
+                    @apply grid grid-flow-col transition-all duration-300;
+                    grid-auto-columns: calc(100%/4 + 8px); 
+                }
+            }
+        }
+    }
+    // .reviews_section {
+
+    // }
+    .info_section {
+        @apply flex flex-col justify-between mb-32 items-center p-12 w-full;
+
+        .main_info {
+            @apply flex items-center justify-between w-full py-24 px-36;
+            p { 
+                @apply text-2xl font-medium text-center;
+                width: 700px;
+            }
+            div {
+                width: 449px;
+                height: 449px;
+                @include image(url('../../images/home/truck.png') center center no-repeat, cover, transparent, none, 0);
+            }
+        }
+        .lower_part {
+            @apply flex items-center pb-32 justify-between;
+            width: 80%;
+
+            div {
+                @apply flex items-center justify-center rounded-lg;
+                height: 280px;
+                width: 291px;
+            }
+            @for $k from 1 through 3 {
+                div:nth-child(#{$k}) {
+                    @include image(url('../../images/home/for_lower/prod_#{$k}.png') center center no-repeat, 60%, rgb(20, 20, 20), none, 0);
+                    @if ($k ==3) {
+                        width: 320px;
+                    }
+                    @if ($k == 1 or $k == 3) {
+                        transform: rotate(15deg);
+                    } @else {
+                        transform: rotate(-15deg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.card {
+    @apply flex items-center flex-col bg-secondary rounded-lg cursor-pointer;
+    height: 330px;
+    width: 280px;
+
+    .image {
+        height: 171px;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background: url('../../images/home/carousel_products/img-1.png')
+    }
+
+    .card_content {
+        @apply flex flex-col justify-between items-center w-full h-36 px-3 pt-2;
+
+        .name_price {
+            @apply flex justify-between w-full;
+
+            span {
+                @layer {
+                    @apply text-main font-bold text-base;
+                }
+            }
+        }
+
+        .info_block {
+            @apply w-full mb-2 text-gray-main font-bold overflow-auto;
+        }
+
+        .info_block::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        .basket_btn {
+            @include order_btn($wd: 97%, $hg: 30px);
+            font-size: 16px;
+        }
+    }
+}
